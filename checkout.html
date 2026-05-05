@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout VIP - Progment</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: var(--color-light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .checkout-container {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .checkout-form-area {
+            padding: 50px;
+        }
+
+        .checkout-summary {
+            background: linear-gradient(135deg, var(--color-dark-blue) 0%, #1a3a70 100%);
+            color: var(--color-white);
+            padding: 50px;
+            position: relative;
+        }
+
+        .onboarding-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-dark-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+
+        .onboarding-logo span {
+            color: var(--color-light-blue);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--color-dark-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--color-dark-blue);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-light-blue);
+            box-shadow: 0 0 0 3px rgba(46, 134, 255, 0.1);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            flex: 1;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: var(--color-text-muted);
+        }
+
+        .payment-method i {
+            font-size: 1.8rem;
+            color: var(--color-dark-blue);
+        }
+
+        .payment-method.active {
+            border-color: var(--color-orange);
+            background-color: rgba(255, 140, 50, 0.05);
+            color: var(--color-orange);
+        }
+
+        .payment-method.active i {
+            color: var(--color-orange);
+        }
+
+        .success-banner {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .success-banner h3 {
+            color: var(--color-orange);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .success-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .order-details {
+            margin-bottom: 30px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        .secure-badge i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+            .checkout-summary {
+                order: -1; /* O resumo aparece em cima no mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        
+        <!-- Área do Formulário -->
+        <div class="checkout-form-area">
+            <a href="index.html" class="onboarding-logo">
+                <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                Prog<span>ment</span>
+            </a>
+
+            <h3 class="section-title">Dados Pessoais</h3>
+            <div class="form-group">
+                <label>Nome completo</label>
+                <input type="text" class="form-control" placeholder="Seu nome">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" class="form-control" placeholder="exemplo@email.com">
+                </div>
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input type="text" class="form-control" placeholder="000.000.000-00">
+                </div>
+            </div>
+
+            <h3 class="section-title" style="margin-top: 20px;">Forma de Pagamento</h3>
+            <div class="payment-methods">
+                <div class="payment-method active" id="btn-credit" onclick="selectPayment('credit')">
+                    <i class="ph-duotone ph-credit-card"></i>
+                    Cartão de Crédito
+                </div>
+                <div class="payment-method" id="btn-pix" onclick="selectPayment('pix')">
+                    <i class="ph-duotone ph-qr-code"></i>
+                    PIX
+                </div>
+            </div>
+
+            <div id="credit-card-form">
+                <div class="form-group">
+                    <label>Número do Cartão</label>
+                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                </div>
+                <div class="form-group">
+                    <label>Nome impresso no cartão</label>
+                    <input type="text" class="form-control" placeholder="NOME DO TITULAR">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Validade</label>
+                        <input type="text" class="form-control" placeholder="MM/AA">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" class="form-control" placeholder="123">
+                    </div>
+                </div>
+            </div>
+
+            <div id="pix-info" style="display: none; text-align: center; padding: 20px; background-color: var(--color-light-gray); border-radius: 8px; margin-bottom: 20px;">
+                <i class="ph-duotone ph-check-circle" style="font-size: 3rem; color: var(--color-orange); margin-bottom: 10px;"></i>
+                <p>O QR Code para pagamento será gerado na próxima tela.</p>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="submit-btn" onclick="processPayment()">Assinar Progment VIP</button>
+            <a href="planos.html" class="back-link">Cancelar e voltar aos planos</a>
+        </div>
+
+        <!-- Área de Resumo -->
+        <div class="checkout-summary">
+            
+            <div class="success-banner">
+                <h3><i class="ph-fill ph-shooting-star"></i> Excelente escolha!</h3>
+                <p>Parabéns pela decisão de ir para o <strong>Progment VIP</strong>! Você está prestes a destravar 100% da nossa Inteligência Artificial e acelerar muito a sua aprovação.</p>
+            </div>
+
+            <div class="order-details">
+                <div class="order-item">
+                    <span>Plano Progment VIP (Mensal)</span>
+                    <span>R$ 49,00</span>
+                </div>
+                <div class="order-item" style="color: var(--color-orange); font-size: 0.95rem;">
+                    <span>Desconto 1ª Mensalidade</span>
+                    <span>- R$ 0,00</span>
+                </div>
+                
+                <div class="order-total">
+                    <span>Total</span>
+                    <span>R$ 49,00</span>
+                </div>
+            </div>
+
+            <ul style="margin-top: 30px;">
+                <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    <i class="ph-bold ph-check" style="color: var(--color-orange);"></i> Testes de nível ilimitados
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    <i class="ph-bold ph-check" style="color: var(--color-orange);"></i> Plano de estudos adaptativo
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    <i class="ph-bold ph-check" style="color: var(--color-orange);"></i> Previsão de temas de prova
+                </li>
+            </ul>
+
+            <div class="secure-badge">
+                <i class="ph-fill ph-lock-key"></i>
+                Pagamento 100% Seguro
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function selectPayment(method) {
+            // Reset styles
+            document.getElementById('btn-credit').classList.remove('active');
+            document.getElementById('btn-pix').classList.remove('active');
+            
+            // Set active
+            document.getElementById('btn-' + method).classList.add('active');
+
+            // Show/Hide forms
+            if (method === 'credit') {
+                document.getElementById('credit-card-form').style.display = 'block';
+                document.getElementById('pix-info').style.display = 'none';
+                document.getElementById('submit-btn').innerText = 'Assinar Progment VIP';
+            } else {
+                document.getElementById('credit-card-form').style.display = 'none';
+                document.getElementById('pix-info').style.display = 'block';
+                document.getElementById('submit-btn').innerText = 'Gerar QR Code PIX';
+            }
+        }
+
+        function processPayment() {
+            const btn = document.getElementById('submit-btn');
+            const isPix = document.getElementById('btn-pix').classList.contains('active');
+            
+            btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin" style="margin-right: 8px;"></i> Processando...';
+            btn.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                if(isPix) {
+                    alert("QR Code gerado com sucesso! (Simulação)");
+                } else {
+                    alert("Pagamento aprovado! Bem-vindo ao Progment VIP! (Simulação)");
+                    window.location.href = "index.html";
+                }
+                btn.innerText = 'Assinar Progment VIP';
+                btn.style.opacity = '1';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - Progment</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 180px 0 80px;
+            background-color: var(--color-dark-blue);
+            color: var(--color-white);
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+        .page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 0;
+        }
+        
+        .feature-block:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .feature-block:nth-child(even) .feature-content {
+            direction: ltr;
+        }
+        
+        .feature-img-wrapper {
+            background-color: var(--color-light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .feature-img-wrapper i {
+            font-size: 8rem;
+            color: var(--color-light-blue);
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--color-dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .feature-content h3 i {
+            color: var(--color-orange);
+        }
+
+        @media (max-width: 992px) {
+            .feature-block, .feature-block:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 40px;
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                    Prog<span>ment</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="como-funciona.html" class="active">Como Funciona</a></li>
+                    <li><a href="diferenciais.html">Diferenciais</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header fade-in">
+        <div class="container">
+            <h1>Como a Progment Funciona?</h1>
+            <p>Entenda em detalhes a metodologia por trás da plataforma que vai revolucionar os seus estudos.</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <!-- Funcionalidade 1 -->
+            <div class="feature-block fade-in">
+                <div class="feature-content">
+                    <h3><i class="ph-fill ph-brain"></i> Teste de Nível Inteligente</h3>
+                    <p>Antes de começar, você realiza um teste diagnóstico rápido, porém profundo, elaborado por especialistas. A nossa inteligência artificial mapeia suas lacunas de conhecimento com precisão cirúrgica, identificando exatamente quais matérias e subtópicos você precisa focar.</p>
+                    <ul style="margin-top: 20px;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--color-text-muted);">
+                            <i class="ph-bold ph-check-circle" style="color: var(--color-orange);"></i> Diagnóstico preciso
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--color-text-muted);">
+                            <i class="ph-bold ph-check-circle" style="color: var(--color-orange);"></i> Sem perda de tempo
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-img-wrapper">
+                    <i class="ph-duotone ph-exam"></i>
+                </div>
+            </div>
+
+            <!-- Funcionalidade 2 -->
+            <div class="feature-block fade-in">
+                <div class="feature-content">
+                    <h3><i class="ph-fill ph-chart-bar"></i> Relatório de Desempenho</h3>
+                    <p>Após cada sessão de estudos e simulado, você recebe um relatório detalhado. Gráficos interativos mostram sua curva de evolução, comparando seu nível atual com o necessário para alcançar seus objetivos.</p>
+                </div>
+                <div class="feature-img-wrapper">
+                    <i class="ph-duotone ph-presentation-chart"></i>
+                </div>
+            </div>
+
+            <!-- Funcionalidade 3 -->
+            <div class="feature-block fade-in">
+                <div class="feature-content">
+                    <h3><i class="ph-fill ph-calendar-check"></i> Plano de Estudos Automático</h3>
+                    <p>Com base nos seus dados de desempenho e na sua disponibilidade de tempo diária, nosso algoritmo gera automaticamente um cronograma semanal. Ele distribui as matérias de forma inteligente, intercalando revisão e novos conteúdos.</p>
+                </div>
+                <div class="feature-img-wrapper">
+                    <i class="ph-duotone ph-calendar-plus"></i>
+                </div>
+            </div>
+
+            <!-- Funcionalidade 4 -->
+            <div class="feature-block fade-in">
+                <div class="feature-content">
+                    <h3><i class="ph-fill ph-crystal-ball"></i> Sistema de Previsão</h3>
+                    <p>A Progment analisa o padrão das provas anteriores do seu concurso ou vestibular. Assim, prevemos quais tópicos têm maior probabilidade de cair, otimizando o seu tempo na reta final.</p>
+                </div>
+                <div class="feature-img-wrapper">
+                    <i class="ph-duotone ph-trend-up"></i>
+                </div>
+            </div>
+
+            <!-- Funcionalidade 5 -->
+            <div class="feature-block fade-in">
+                <div class="feature-content">
+                    <h3><i class="ph-fill ph-shield-check"></i> Modo Foco Inteligente (Anti-procrastinação)</h3>
+                    <p>Ative o modo foco e mergulhe nos estudos. Utilizamos técnicas de Pomodoro adaptativo e bloqueadores de distrações para garantir que suas sessões de estudo rendam o máximo possível.</p>
+                </div>
+                <div class="feature-img-wrapper">
+                    <i class="ph-duotone ph-hourglass-high"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container fade-in">
+            <h2>Pronto para otimizar sua rotina?</h2>
+            <p style="margin-bottom: 30px;">Crie sua conta agora e faça seu primeiro diagnóstico de nível.</p>
+            <a href="planos.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">👉 Começar agora</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                        Prog<span style="color: var(--color-light-blue);">ment</span>
+                    </a>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Inovação em EdTech para maximizar seu aprendizado.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="como-funciona.html">Como Funciona</a></li>
+                        <li><a href="diferenciais.html">Diferenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="planos.html">Planos e Preços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Progment. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos - Progment</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 180px 0 80px;
+            background-color: var(--color-light-gray);
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--color-dark-blue);
+            margin-bottom: 20px;
+        }
+        .page-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 60px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.premium {
+            border-color: var(--color-orange);
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 140, 50, 0.15);
+        }
+        
+        .pricing-card.premium:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--color-orange);
+            color: var(--color-white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-dark-blue);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .plan-price sub {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            font-weight: 400;
+            margin-top: auto;
+            margin-bottom: 10px;
+        }
+
+        .plan-desc {
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .features-list {
+            text-align: left;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .features-list i.ph-check {
+            color: var(--color-light-blue);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        .features-list i.ph-x {
+            color: #ccc;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        
+        .premium .features-list i.ph-check {
+            color: var(--color-orange);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.premium {
+                transform: scale(1);
+            }
+            .pricing-card.premium:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                    Prog<span>ment</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="diferenciais.html">Diferenciais</a></li>
+                    <li><a href="planos.html" class="active">Planos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header fade-in">
+        <div class="container">
+            <h1>Escolha o plano ideal para você</h1>
+            <p>Invista no seu futuro. Cancele quando quiser, sem taxas escondidas.</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="pricing-grid">
+                
+                <!-- Plano Gratuito -->
+                <div class="pricing-card fade-in">
+                    <h3 class="plan-name">Básico</h3>
+                    <div class="plan-price">Grátis</div>
+                    <p class="plan-desc">Para quem quer conhecer o método.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="ph-bold ph-check"></i> Teste de nível inicial (1x/mês)</li>
+                        <li><i class="ph-bold ph-check"></i> Plano de estudos gerado semanalmente</li>
+                        <li><i class="ph-bold ph-check"></i> Modo foco padrão (Cronômetro Pomodoro)</li>
+                        <li style="color: #999;"><i class="ph-bold ph-x"></i> Relatórios avançados de desempenho</li>
+                        <li style="color: #999;"><i class="ph-bold ph-x"></i> Previsão de temas de prova</li>
+                        <li style="color: #999;"><i class="ph-bold ph-x"></i> Grupos de estudo exclusivos</li>
+                    </ul>
+                    
+                    <a href="cadastro.html" class="btn btn-outline" style="width: 100%;">Criar Conta Grátis</a>
+                </div>
+
+                <!-- Plano Premium -->
+                <div class="pricing-card premium fade-in">
+                    <div class="popular-badge">Mais Popular</div>
+                    <h3 class="plan-name">Progment VIP</h3>
+                    <div class="plan-price"><span>R$</span>49<sub>/mês</sub></div>
+                    <p class="plan-desc">Acesso total à nossa inteligência artificial e ecossistema.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="ph-bold ph-check"></i> Testes de nível ilimitados</li>
+                        <li><i class="ph-bold ph-check"></i> Plano de estudos adaptativo em tempo real</li>
+                        <li><i class="ph-bold ph-check"></i> Modo foco com bloqueio de sites e apps</li>
+                        <li><i class="ph-bold ph-check"></i> Dashboard completo com análises avançadas</li>
+                        <li><i class="ph-bold ph-check"></i> Radar de provas: Previsão de conteúdos</li>
+                        <li><i class="ph-bold ph-check"></i> Acesso aos grupos de estudo de alta performance</li>
+                    </ul>
+                    
+                    <a href="checkout.html" class="btn btn-primary" style="width: 100%;">Assinar Premium</a>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <p>Estudante de escola pública? <a href="contato.html" style="color: var(--color-light-blue); font-weight: 600; text-decoration: underline;">Conheça nosso programa de bolsas.</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                        Prog<span style="color: var(--color-light-blue);">ment</span>
+                    </a>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Inovação em EdTech para maximizar seu aprendizado.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="como-funciona.html">Como Funciona</a></li>
+                        <li><a href="diferenciais.html">Diferenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="planos.html">Planos e Preços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Progment. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

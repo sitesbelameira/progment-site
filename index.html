@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progment - Plataforma de Estudo Inteligente</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                    Prog<span>ment</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="diferenciais.html">Diferenciais</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção 1 - Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Evolua com <span>método</span>.<br>Aprenda com <span>propósito</span>.</h1>
+                <p>Plataforma inteligente que analisa seu nível de conhecimento e mostra exatamente o que você precisa estudar.</p>
+                <a href="planos.html" class="btn btn-primary">👉 Começar agora</a>
+            </div>
+            <div class="hero-image fade-in">
+                <!-- Usando Unsplash para imagem de estudante com tecnologia -->
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudante usando notebook">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2 - Como funciona -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Como Funciona</h2>
+                <p>Quatro passos simples para transformar seus estudos</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card fade-in interactive-card" onclick="toggleCard(this)">
+                    <div class="step-number">01</div>
+                    <i class="ph ph-chart-line-up step-icon"></i>
+                    <h3>Diagnóstico de Nível</h3>
+                    <p>Descubra exatamente onde você está e quais são seus pontos fortes e fracos.</p>
+                    <div class="card-details">
+                        <p><strong>Como funciona:</strong> Nossa IA mapeia suas habilidades com testes curtos e adaptativos. A partir disso, montamos um mapa de calor das disciplinas que precisam de atenção imediata.</p>
+                    </div>
+                    <div class="click-hint">Clique para saber mais <i class="ph-bold ph-caret-down"></i></div>
+                </div>
+                
+                <div class="step-card fade-in interactive-card" onclick="toggleCard(this)">
+                    <div class="step-number">02</div>
+                    <i class="ph ph-target step-icon"></i>
+                    <h3>Plano Personalizado</h3>
+                    <p>Receba uma trilha de estudos feita sob medida para o seu objetivo.</p>
+                    <div class="card-details">
+                        <p><strong>Como funciona:</strong> O sistema cruza os dados do seu diagnóstico com as horas que você tem livres, gerando automaticamente um cronograma dinâmico que se adapta aos seus imprevistos.</p>
+                    </div>
+                    <div class="click-hint">Clique para saber mais <i class="ph-bold ph-caret-down"></i></div>
+                </div>
+                
+                <div class="step-card fade-in interactive-card" onclick="toggleCard(this)">
+                    <div class="step-number">03</div>
+                    <i class="ph ph-users-three step-icon"></i>
+                    <h3>Conexão</h3>
+                    <p>Conecte-se com estudantes do mesmo nível para evoluírem juntos.</p>
+                    <div class="card-details">
+                        <p><strong>Como funciona:</strong> Você é inserido em grupos restritos de estudo com alunos que buscam a mesma aprovação que você, facilitando a troca de resumos, materiais e dúvidas.</p>
+                    </div>
+                    <div class="click-hint">Clique para saber mais <i class="ph-bold ph-caret-down"></i></div>
+                </div>
+                
+                <div class="step-card fade-in interactive-card" onclick="toggleCard(this)">
+                    <div class="step-number">04</div>
+                    <i class="ph ph-brain step-icon"></i>
+                    <h3>Modo Foco</h3>
+                    <p>Elimine distrações com nossa tecnologia anti-procrastinação inteligente.</p>
+                    <div class="card-details">
+                        <p><strong>Como funciona:</strong> Bloqueamos notificações e aplicamos ciclos de foco adaptativos (ex: Pomodoro de 50/10) ajustados para o seu ritmo, garantindo máximo rendimento sem esgotamento.</p>
+                    </div>
+                    <div class="click-hint">Clique para saber mais <i class="ph-bold ph-caret-down"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3 - Benefícios -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Por que escolher a Progment?</h2>
+                <p>Benefícios reais que impulsionam seus resultados</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="ph ph-compass"></i></div>
+                    <div>
+                        <h3>Estudo Direcionado</h3>
+                        <p>Chega de estudar o que não cai. Foco no que realmente importa para a sua aprovação.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="ph ph-lightning"></i></div>
+                    <div>
+                        <h3>Mais Produtividade</h3>
+                        <p>Renda até 3x mais com métodos de estudo otimizados e pausas estratégicas.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="ph ph-hourglass-high"></i></div>
+                    <div>
+                        <h3>Menos Perda de Tempo</h3>
+                        <p>Diga adeus ao planejamento manual. Nossa IA monta tudo para você.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="ph ph-trend-up"></i></div>
+                    <div>
+                        <h3>Melhor Desempenho</h3>
+                        <p>Acompanhe sua evolução através de gráficos precisos e relatórios de simulados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4 - Para quem é -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Para Quem É a Progment?</h2>
+                <p>Adaptável a diferentes realidades de estudo</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <i class="ph ph-backpack step-icon"></i>
+                    <h3>Ensino Médio</h3>
+                    <p>Base forte para os desafios que vêm pela frente.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <i class="ph ph-exam step-icon"></i>
+                    <h3>Vestibulandos</h3>
+                    <p>Foco total na aprovação na universidade dos sonhos.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <i class="ph ph-student step-icon"></i>
+                    <h3>Universitários</h3>
+                    <p>Organização para lidar com a carga de leitura e trabalhos.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <i class="ph ph-wrench step-icon"></i>
+                    <h3>Cursos Técnicos</h3>
+                    <p>Equilíbrio perfeito entre teoria e prática.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5 - CTA Final -->
+    <section class="cta-section">
+        <div class="container fade-in">
+            <h2>Comece hoje a estudar com direção.</h2>
+            <p style="margin-bottom: 30px;">Junte-se a milhares de estudantes que já transformaram suas rotinas.</p>
+            <a href="planos.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">👉 Criar conta grátis</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                        Prog<span style="color: var(--color-light-blue);">ment</span>
+                    </a>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Inovação em EdTech para maximizar seu aprendizado.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="como-funciona.html">Como Funciona</a></li>
+                        <li><a href="diferenciais.html">Diferenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="planos.html">Planos e Preços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Progment. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Progment</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            padding: 150px 0 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background-color: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--color-dark-blue) 0%, #1a3a70 100%);
+            color: var(--color-white);
+            padding: 60px;
+            position: relative;
+        }
+
+        .contact-info h2 {
+            color: var(--color-white);
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--color-orange);
+        }
+
+        .contact-item div h4 {
+            color: var(--color-white);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item div p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-form-wrapper {
+            padding: 60px;
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--color-dark-blue);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-light-blue);
+            background-color: var(--color-white);
+            box-shadow: 0 0 0 3px rgba(46, 134, 255, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form-wrapper {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info, .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                    Prog<span>ment</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="diferenciais.html">Diferenciais</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section fade-in">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Informações de Contato -->
+                <div class="contact-info">
+                    <h2>Fale com a gente</h2>
+                    <p>Tem alguma dúvida sobre a plataforma, planos corporativos ou precisa de ajuda? Nossa equipe está pronta para atender você.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="ph-fill ph-map-pin"></i>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Rua André de Barros, 750, Centro</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="ph-fill ph-envelope-simple"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contato@progment.com.br<br>suporte@progment.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="ph-fill ph-phone"></i>
+                            <div>
+                                <h4>Telefone / WhatsApp</h4>
+                                <p>+55 41 997131474</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="contact-form-wrapper">
+                    <h3>Envie uma mensagem</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome completo</label>
+                            <input type="text" id="name" class="form-control" placeholder="Seu nome" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Selecione um assunto</option>
+                                <option value="duvida">Dúvida sobre a plataforma</option>
+                                <option value="suporte">Suporte Técnico</option>
+                                <option value="parceria">Parcerias / Escolas</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" class="form-control" placeholder="Como podemos te ajudar?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">Enviar Mensagem</button>
+                        
+                        <div class="success-message" id="successMsg">
+                            Mensagem enviada com sucesso! Entraremos em contato em breve.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                        Prog<span style="color: var(--color-light-blue);">ment</span>
+                    </a>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Inovação em EdTech para maximizar seu aprendizado.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="como-funciona.html">Como Funciona</a></li>
+                        <li><a href="diferenciais.html">Diferenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="planos.html">Planos e Preços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Progment. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Validação simples do formulário
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulação de envio
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+            btn.innerText = 'Enviando...';
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+                this.reset();
+                document.getElementById('successMsg').style.display = 'block';
+                
+                setTimeout(() => {
+                    document.getElementById('successMsg').style.display = 'none';
+                }, 5000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
