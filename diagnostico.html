@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Nível - Progment</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="ph-fill ph-graduation-cap" style="color: var(--color-orange);"></i>
+                    Prog<span>ment</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="diferenciais.html">Diferenciais</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="diagnosis-main">
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <div class="container">
+            <!-- Step Indicator -->
+            <div class="diagnosis-steps-nav fade-in">
+                <div class="step-nav-item active" id="nav-step-1">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Mapeamento</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-nav-item" id="nav-step-2">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Simulado</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-nav-item" id="nav-step-3">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Resultado</span>
+                </div>
+            </div>
+
+            <!-- Etapa 1: Seleção de Matéria -->
+            <section id="step-selection" class="diagnosis-step active">
+                <div class="section-header fade-in">
+                    <span class="badge">Diagnóstico Grátis</span>
+                    <h2>Mapeamento de Conhecimento</h2>
+                    <p>Personalize sua jornada escolhendo a trilha que deseja testar agora.</p>
+                </div>
+                
+                <div class="selection-grid">
+                    <!-- Skeleton Loader -->
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </section>
+
+            <!-- Etapa 2: Simulado (Quiz) -->
+            <section id="step-quiz" class="diagnosis-step">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-info">
+                            <span id="current-subject">Matéria</span>
+                            <span id="question-counter">Questão 1 de 10</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="quiz-progress" class="progress-bar" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="question-card" class="question-card fade-in">
+                        <!-- Conteúdo gerado dinamicamente via JS -->
+                        <h3 id="question-text">Carregando questão...</h3>
+                        <div id="options-container" class="options-container">
+                            <!-- Opções aqui -->
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-footer">
+                        <button id="next-btn" class="btn btn-secondary" disabled onclick="handleNext()">Próxima Questão <i class="ph ph-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Etapa 3: Resultados -->
+            <section id="step-results" class="diagnosis-step">
+                <div class="results-container fade-in">
+                    <div class="results-header">
+                        <h2>Seu Desempenho</h2>
+                        <div class="score-badge">
+                            <span id="final-score">0%</span>
+                            <p>Nível de acerto</p>
+                        </div>
+                    </div>
+
+                    <div class="results-layout">
+                        <!-- Coluna 1: Gráfico e Recomendações -->
+                        <div class="results-summary">
+                            <div class="chart-container">
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                            
+                            <div class="study-recommendations">
+                                <h3><i class="ph-fill ph-lightbulb"></i> O que estudar para evoluir:</h3>
+                                <ul id="recommendations-list">
+                                    <!-- Recomendações via JS -->
+                                </ul>
+                                <div class="results-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: 25px;">
+                                    <a href="planos.html" class="btn btn-primary">Quero um plano completo</a>
+                                    <button class="btn btn-outline" onclick="window.location.reload()">Refazer Teste</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 2: Detalhamento de Questões -->
+                        <div class="results-details">
+                            <h3>Revisão das Questões</h3>
+                            <div id="questions-review" class="questions-review">
+                                <!-- Detalhes via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé (Simplificado para o diagnóstico) -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Progment. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot (Opcional, mas mantendo consistência) -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <i class="ph-bold ph-chat-teardrop-dots"></i>
+        </button>
+        <div class="chatbot-window" id="chatbot-window">
+            <!-- Conteúdo do chatbot já implementado -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="diagnostico.js"></script>
+</body>
+</html>

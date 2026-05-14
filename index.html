@@ -43,7 +43,10 @@
             <div class="hero-content fade-in">
                 <h1>Evolua com <span>método</span>.<br>Aprenda com <span>propósito</span>.</h1>
                 <p>Plataforma inteligente que analisa seu nível de conhecimento e mostra exatamente o que você precisa estudar.</p>
-                <a href="planos.html" class="btn btn-primary">👉 Começar agora</a>
+                <div class="hero-btns">
+                    <a href="planos.html" class="btn btn-primary">👉 Começar agora</a>
+                    <a href="diagnostico.html" class="btn btn-outline" style="margin-left: 15px;">📊 Teste de Nível Grátis</a>
+                </div>
             </div>
             <div class="hero-image fade-in">
                 <!-- Usando Unsplash para imagem de estudante com tecnologia -->
@@ -152,6 +155,67 @@
         </div>
     </section>
 
+    <!-- Seção Identidade Corporativa e Proposta de Valor -->
+    <section class="corporate-identity">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nossa Essência</h2>
+                <p>O propósito que move a Progment todos os dias</p>
+            </div>
+            
+            <div class="identity-grid">
+                <!-- Missão -->
+                <div class="identity-card fade-in">
+                    <div class="identity-icon-wrapper">
+                        <i class="ph-fill ph-rocket"></i>
+                    </div>
+                    <h3>Missão</h3>
+                    <p>Inspirar a evolução de cada estudante, oferecendo direção, clareza e tecnologia para transformar conhecimento em conquistas reais.</p>
+                </div>
+                
+                <!-- Visão -->
+                <div class="identity-card fade-in">
+                    <div class="identity-icon-wrapper">
+                        <i class="ph-fill ph-eye"></i>
+                    </div>
+                    <h3>Visão</h3>
+                    <p>Ser a plataforma EdTech referência no Brasil em inovação e aprovações, transformando a maneira como as pessoas estudam e alcançam seus objetivos.</p>
+                </div>
+                
+                <!-- Valores -->
+                <div class="identity-card fade-in">
+                    <div class="identity-icon-wrapper">
+                        <i class="ph-fill ph-diamond"></i>
+                    </div>
+                    <h3>Valores</h3>
+                    <ul class="values-list">
+                        <li><i class="ph-bold ph-check-circle"></i> Inovação constante</li>
+                        <li><i class="ph-bold ph-check-circle"></i> Foco no aluno</li>
+                        <li><i class="ph-bold ph-check-circle"></i> Acessibilidade</li>
+                        <li><i class="ph-bold ph-check-circle"></i> Excelência educacional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Proposta de Valor -->
+            <div class="value-prop fade-in">
+                <div class="value-prop-content">
+                    <span class="badge">Nossa Proposta de Valor</span>
+                    <h3>Estudo inteligente para resultados extraordinários</h3>
+                    <p>A Progment não é apenas uma plataforma de cursos, é <strong>o seu GPS para a aprovação</strong>. Entregamos clareza através de diagnósticos precisos, foco através de planos de estudo adaptativos gerados por IA, e motivação através de uma comunidade engajada.</p>
+                </div>
+                <div class="value-prop-visual">
+                    <div class="tech-circle">
+                        <div class="tech-icon center"><i class="ph-fill ph-brain" style="color: var(--color-orange);"></i></div>
+                        <div class="tech-icon orbit orbit-1"><i class="ph-fill ph-target"></i></div>
+                        <div class="tech-icon orbit orbit-2"><i class="ph-fill ph-chart-line-up"></i></div>
+                        <div class="tech-icon orbit orbit-3"><i class="ph-fill ph-users-three"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Seção 4 - Para quem é -->
     <section class="bg-light">
         <div class="container">
@@ -226,6 +290,40 @@
             </div>
         </div>
     </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <i class="ph-bold ph-chat-teardrop-dots"></i>
+        </button>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div>
+                    <h4>Assistente Progment</h4>
+                    <p>Online</p>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Olá! 👋 Sou o assistente da Progment. Como posso te ajudar a melhorar seus estudos hoje?
+                    </div>
+                </div>
+                <div class="chatbot-options">
+                    <button class="chat-option" onclick="sendOption('Como funciona a plataforma?')">Como funciona?</button>
+                    <button class="chat-option" onclick="sendOption('Quais são os planos?')">Quais são os planos?</button>
+                    <button class="chat-option" onclick="sendOption('Posso testar de graça?')">Posso testar grátis?</button>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input-field" placeholder="Digite sua mensagem...">
+                <button id="chat-send-btn" aria-label="Enviar"><i class="ph-bold ph-paper-plane-right"></i></button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

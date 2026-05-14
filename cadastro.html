@@ -310,11 +310,17 @@
             }
         }
 
+        let selectedFocus = "";
+
         function selectOption(element) {
             // Remover seleção dos outros
             document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
             // Adicionar ao clicado
             element.classList.add('selected');
+            
+            // Salvar o texto do foco escolhido (normalizado)
+            selectedFocus = element.querySelector('h4').innerText;
+            localStorage.setItem('userFocus', selectedFocus);
         }
 
         function startTest() {
@@ -322,9 +328,16 @@
             btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin" style="margin-right: 8px;"></i> Carregando seu teste...';
             
             setTimeout(() => {
-                alert("Simulação concluída! Bem-vindo à área do aluno da Progment.");
-                window.location.href = "index.html"; // Redirecionaria para o dashboard real
-            }, 2000);
+                // Redireciona para o diagnóstico passando o foco
+                const focusMap = {
+                    'Ensino Médio': 'ensinoMedio',
+                    'Vestibular / ENEM': 'enem',
+                    'Concurso Público': 'concurso',
+                    'Universidade': 'universidade'
+                };
+                const focusKey = focusMap[selectedFocus] || 'enem';
+                window.location.href = `diagnostico.html?focus=${focusKey}`;
+            }, 1500);
         }
     </script>
 </body>
