@@ -98,17 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if(chatbotWindow.classList.contains('active')) {
                 // Focar no input quando abrir
                 setTimeout(() => {
-                    chatInput.focus();
+                    if (chatInput) {
+                        chatInput.focus();
+                    }
                 }, 400);
             }
         });
 
-        chatbotClose.addEventListener('click', () => {
-            chatbotWindow.classList.remove('active');
-        });
+        if (chatbotClose) {
+            chatbotClose.addEventListener('click', () => {
+                chatbotWindow.classList.remove('active');
+            });
+        }
 
         // Handle sending messages
         const sendMessage = () => {
+            if (!chatInput) return;
             const text = chatInput.value.trim();
             if (text === '') return;
 
@@ -124,12 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
             simulateBotResponse(text);
         };
 
-        chatSendBtn.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+        if (chatSendBtn) {
+            chatSendBtn.addEventListener('click', sendMessage);
+        }
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
     }
 
     // Função global para opções dos botões
@@ -148,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function addMessage(text, sender) {
+        if (!chatMessages) return;
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${sender}`;
         msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
@@ -156,11 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showTyping() {
+        if (!chatMessages) return null;
         const typingDiv = document.createElement('div');
         typingDiv.className = 'message bot typing-indicator-container';
         typingDiv.innerHTML = `
             <div class="typing-indicator">
-                <span></span><span></span><span></span>
+                <span></span><span><span></span>
             </div>
         `;
         chatMessages.appendChild(typingDiv);
@@ -169,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function scrollToBottom() {
+        if (!chatMessages) return;
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
@@ -196,7 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         setTimeout(() => {
-            typingIndicator.remove();
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
             addMessage(response, 'bot');
             
             // Adicionar botões de opção condicionalmente
@@ -215,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addOptions(optionsList) {
+        if (!chatMessages) return;
         const optionsDiv = document.createElement('div');
         optionsDiv.className = 'chatbot-options';
         

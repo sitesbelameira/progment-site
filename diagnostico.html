@@ -163,7 +163,31 @@
             <i class="ph-bold ph-chat-teardrop-dots"></i>
         </button>
         <div class="chatbot-window" id="chatbot-window">
-            <!-- Conteúdo do chatbot já implementado -->
+            <div class="chatbot-header">
+                <div>
+                    <h4>Assistente Progment</h4>
+                    <p>Online</p>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Olá! 👋 Sou o assistente da Progment. Como posso te ajudar a melhorar seus estudos hoje?
+                    </div>
+                </div>
+                <div class="chatbot-options">
+                    <button class="chat-option" onclick="sendOption('Como funciona a plataforma?')">Como funciona?</button>
+                    <button class="chat-option" onclick="sendOption('Quais são os planos?')">Quais são os planos?</button>
+                    <button class="chat-option" onclick="sendOption('Posso testar de graça?')">Posso testar grátis?</button>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input-field" placeholder="Digite sua mensagem...">
+                <button id="chat-send-btn" aria-label="Enviar"><i class="ph-bold ph-paper-plane-right"></i></button>
+            </div>
         </div>
     </div>
 
