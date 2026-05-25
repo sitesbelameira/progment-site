@@ -250,8 +250,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (focus && questionData[focus]) {
         selectedFocus = focus;
         initFocus(focus);
+    } else {
+        // Sem parâmetro: mostrar seleção de foco
+        showFocusSelection();
     }
 });
+
+function showFocusSelection() {
+    const selectionGrid = document.querySelector('.selection-grid');
+    selectionGrid.innerHTML = "";
+
+    const focusOptions = [
+        { key: 'ensinoMedio', title: 'Ensino Médio', desc: 'Base forte para os desafios que vêm pela frente.', icon: 'ph-backpack', color: '#4361ee' },
+        { key: 'enem', title: 'Vestibular / ENEM', desc: 'Foco total na aprovação na universidade dos sonhos.', icon: 'ph-exam', color: '#f77f00' },
+        { key: 'concurso', title: 'Concurso Público', desc: 'Preparação estratégica para sua aprovação.', icon: 'ph-briefcase', color: '#2ec4b6' },
+        { key: 'universidade', title: 'Universidade', desc: 'Organização para lidar com a carga acadêmica.', icon: 'ph-student', color: '#9b5de5' }
+    ];
+
+    focusOptions.forEach(opt => {
+        const card = document.createElement('div');
+        card.className = 'selection-card fade-in visible';
+        card.onclick = () => {
+            selectedFocus = opt.key;
+            initFocus(opt.key);
+        };
+        card.innerHTML = `
+            <div class="selection-icon" style="background: ${opt.color}15; color: ${opt.color};"><i class="ph-fill ${opt.icon}"></i></div>
+            <h3>${opt.title}</h3>
+            <p>${opt.desc}</p>
+            <button class="btn btn-primary">Iniciar Diagnóstico</button>
+        `;
+        selectionGrid.appendChild(card);
+    });
+}
 
 function initFocus(focusKey) {
     const data = questionData[focusKey];
